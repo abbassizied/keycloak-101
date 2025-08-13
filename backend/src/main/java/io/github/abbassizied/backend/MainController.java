@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 @RestController
 public class MainController {
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String hello() {
         return "hello, world!";
     }

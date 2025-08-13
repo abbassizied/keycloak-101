@@ -5,9 +5,12 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://host.docker.internal:7080/realms/sentinel-nexus-realm
+          issuer-uri: http://localhost:7080/realms/sentinel-nexus-realm
+          # jwk-set-uri not needed — auto-discovery works
+
+          # jwk-set-uri is usually only needed if your server does not provide .well-known/openid-configuration.
           # The jwk-set-uri property points to the URI containing the public key so that our Resource Server can verify the tokens’ integrity
-          jwk-set-uri: http://host.docker.internal:7080/realms/sentinel-nexus-realm/protocol/openid-connect/certs
+          #jwk-set-uri: http://localhost:7080/realms/sentinel-nexus-realm/protocol/openid-connect/certs
 
 server:
   port: 9999
