@@ -1,0 +1,15 @@
+@if(isAuthenticated && username){
+<span class="username">Welcome, {{ username }}</span>
+}
+<a [routerLink]="['']"> 🏠 Home </a>
+@if(isAuthenticated){
+<a [routerLink]="['user']"> 👤 User </a>
+<a [routerLink]="['admin']"> 🔒 Admin </a>
+}
+
+
+ @if(!isAuthenticated){
+<button (click)="login()">🔑 Login</button>
+}@else {
+<button (click)="logout()">🚪 Logout</button>
+}
