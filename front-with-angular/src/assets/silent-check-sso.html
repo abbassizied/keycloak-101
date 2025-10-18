@@ -1,7 +1,26 @@
-<html>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent SSO Check</title>
+</head>
+<body>
+    <noscript>
+        <p>You need to enable JavaScript to run this app.</p>
+    </noscript>
+    
     <script>
-      parent.postMessage(location.href, location.origin);
+        // Check if we're in an iframe and parent window exists
+        if (globalThis.parent && globalThis.parent !== globalThis) {
+            try {
+                globalThis.parent.postMessage(globalThis.location.href, globalThis.location.origin);
+            } catch (error) {
+                console.error('Failed to post message to parent:', error);
+            }
+        } else {
+            console.error('Silent SSO check should be loaded in an iframe');
+        }
     </script>
-  </body>
+</body>
 </html>

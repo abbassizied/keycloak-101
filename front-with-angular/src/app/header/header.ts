@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../services/auth'; // You'll need to create this
+import { AuthService } from '../services/auth.service'; // You'll need to create this
 
 @Component({
   selector: 'app-header',
